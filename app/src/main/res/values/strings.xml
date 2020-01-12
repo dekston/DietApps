@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Diet Apps</string>
+    <string name="food_image">Food Image</string>
+    <string name="food_name">Food Name</string>
+    <string name="food_calories">Food Calories</string>
+    <string name="food_description">Food Description</string>
+    <string name="save">Save</string>
+</resources>
