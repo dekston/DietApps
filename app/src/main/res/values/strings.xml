@@ -5,4 +5,5 @@
     <string name="food_calories">Food Calories</string>
     <string name="food_description">Food Description</string>
     <string name="save">Save</string>
+    <string name="nutrition">NutitionList</string>
 </resources>

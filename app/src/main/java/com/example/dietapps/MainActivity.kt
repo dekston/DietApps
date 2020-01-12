@@ -12,6 +12,13 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.food_layout.view.*
+import java.util.*
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import com.example.dietapps.FoodViewHolder
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -39,8 +46,8 @@ class MainActivity : AppCompatActivity() {
 
         firebaseListenerInit()
         foodRecycleView.layoutManager = LinearLayoutManager(this)
-        val query = foodReference!!.limitToLast(8)
-
+        //val query = foodReference!!.limitToLast(8)
+        val query = foodReference!!.orderByChild("foodName")
         foodAdapter = object: FirebaseRecyclerAdapter<Food, FoodViewHolder>(
             Food::class.java, R.layout.food_layout, FoodViewHolder::class.java,query
         ){
@@ -62,11 +69,6 @@ class MainActivity : AppCompatActivity() {
         }
         foodRecycleView.adapter = foodAdapter
 
-        fabAddfoodPost.setOnClickListener{
-            val intent = Intent(this, AddFood::class.java)
-
-            startActivity(intent)
-        }
     }
 
     private fun firebaseListenerInit() {
